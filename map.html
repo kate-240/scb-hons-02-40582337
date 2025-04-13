@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotland Map with Stops</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+   #map { height: 500px; width: 100%; }
+        #trip-container { margin-top: 10px; }
+        #trip-list { max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; }
+        .trip-item { display: flex; justify-content: space-between; padding: 5px; }
+        .trip-item input { width: 70%; }
+
+        .header {
+  position: relative;
+  text-align: center;
+  color: grey;
+}
+
+.header-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+    </style>
+
+</head>
+   <div class="header">
+  <img src="banner.jpg" style="width: 600px; height: auto">
+  <div class="header-centered">Map</div>
+</div>
+
+<nav>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="Chat.html">Chat</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="info.html">Information</a></li>
+</nav>
+
+<body>
+ 
+    <div id="map"></div>
+    <div id="trip-container">
+        <button onclick="clearTrips()">Clear Trips</button>
+        <h3>Trip Directions:</h3>
+        <ul id="trip-list"></ul>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+    <script>
+        var map = L.map('map').setView([56.4907, -4.2026], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        var tripStops = [];
+        var markers = [];
+        var routeControl = null;
+
+        function onMapClick(e) {
+            var marker = L.marker(e.latlng, { draggable: true }).addTo(map);
+            marker.on('dragend', updateWaypoints);
+            marker.on('click', function() { removeStop(marker); });
+            markers.push(marker);
+            
+            tripStops.push(e.latlng);
+            updateRoute();
+            updateTripList();
+        }
+
+        function updateRoute() {
+            if (routeControl) {
+                map.removeControl(routeControl);
+            }
+            if (tripStops.length > 1) {
+                routeControl = L.Routing.control({
+                    waypoints: tripStops,
+                    createMarker: function() { return null; },
+                    routeWhileDragging: true,
+                    show: false
+                }).addTo(map);
+            }
+        }
+
+        function updateWaypoints() {
+            tripStops = markers.map(marker => marker.getLatLng());
+            updateRoute();
+            updateTripList();
+        }
+
+        function removeStop(marker) {
+            var index = markers.indexOf(marker);
+            if (index > -1) {
+                tripStops.splice(index, 1);
+                markers.splice(index, 1);
+                map.removeLayer(marker);
+                updateRoute();
+                updateTripList();
+            }
+        }
+
+        function updateTripList() {
+            var list = document.getElementById("trip-list");
+            list.innerHTML = "";
+            tripStops.forEach((stop, index) => {
+                var listItem = document.createElement("li");
+                listItem.className = "trip-item";
+                
+                var input = document.createElement("input");
+                input.type = "text";
+                input.value = `Stop ${index + 1}`;
+                
+                var removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.onclick = function() { removeStop(markers[index]); };
+                
+                listItem.appendChild(input);
+                listItem.appendChild(removeButton);
+                list.appendChild(listItem);
+            });
+        }
+
+        function clearTrips() {
+            tripStops = [];
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            if (routeControl) {
+                map.removeControl(routeControl);
+                routeControl = null;
+            }
+            document.getElementById("trip-list").innerHTML = "";
+        }
+
+        map.on('click', onMapClick);
+    </script>
+  </body>
+  </html>

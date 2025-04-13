@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media</title>
+  <link rel="stylesheet" href="css.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+   
+    header {
+      background-color: #666;
+      padding: 30px;
+      text-align: center;
+      color: #6495ED;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    article {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      padding: 20px;
+      margin: 10px;
+    }
+
+    footer {
+      background-color: #777;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      section {
+        flex-direction: column;
+      }
+
+      article {
+        width: 100%;
+      }
+    }
+
+    .header {
+  position: relative;
+  text-align: center;
+  color: grey;
+}
+
+.header-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+  </style>
+</head>
+<body>
+
+ <div class="header">
+  <img src="banner.jpg" style="width: 690px; height: auto">
+  <div class="header-centered">Concerts</div>
+</div>
+
+<header>
+
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="Chat.html">Chat</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="info.html">Information</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <article>
+    <h1>Welcome to Sound</h1>
+    <p>Discover the latest concerts, performances, and music news here.</p>
+  </article>
+
+  <article>
+    <h1>Concert Posts</h1>
+    <p>Stay tuned for updates about upcoming events, artist highlights, and venue reviews.</p>
+  </article>
+</section>
+
+<footer>
+  <p>© 2025 Sound Media. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+
+  
+       
+

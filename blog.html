@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+        <link rel="stylesheet" href="css.css">
+        
+        <title>Home</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+
+}
+
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+  margin-bottom: 30px;
+}
+
+
+/* Use Flexbox for layout */
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left column */
+.leftcolumn {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Right column */
+.rightcolumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Fake image placeholder */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card layout */
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  color: grey;
+}
+
+.header-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+</style>
+
+
+
+
+</head>
+
+<body>
+
+       <div class="header">
+  <img src="banner.jpg" style="width: 600px; height: auto">
+  <div class="header-centered">Concert help guide</div>
+</div>
+
+         <nav>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="Chat.html">Chat</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="info.html">Information</a></li>
+</nav>
+
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>First Concert</h2>
+      <h5>Some thing's you should know</h5>
+     <img src="https://via.placeholder.com/600x200" alt="Concert Overview" style="width:100%; border-radius:8px;">
+     <p>When it comes to concerts here is what you should do:</p>
+
+
+<ul>
+  <p>Travel with a friend or family member</p>
+
+ <p>Plan the journey ahead of time</p>
+
+ <p>keep important items hidden</p>
+</ul>
+
+
+</div>
+ </div>
+
+
+ <div class="card">
+      <h2>Travel with a friend or family member</h2>
+      <h5>Travelling with a friend or family member is the best thing to do if you going with them to the concert</h5>
+       <img src="https://via.placeholder.com/600x200" alt="Travel Together" style="width:100%; border-radius:8px;">
+
+      <p>It is better to go with someone to a concert eith being a family member or a friend if you have multiple tickets to that event, or if you are going alone message someone you trust with your location and where the venue is.</p>
+    </div>
+  </div>
+
+
+ <div class="card">
+      <h2>Plan the journey ahead of time</h2>
+      <h5>Planning ahead of time helps you keep track of everything</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Planning ahead of time when it comes to events is important since it helps you to know the times of when to leave and if using public transport the times when they leave as well or if there will be any delays with transport</p>
+    </div>
+  </div>
+
+ <div class="leftcolumn">
+      <h2>Keep important items hidden</h2>
+      <h5>The importance of keeping important personal items hidden from view at concerts.</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Keeping important items hidden will help in the long run when you are travellingwith someone or travelling alone,keeping these items in small bags or pockets will keep them out of sight of people you don't trust.</p>
+
+<p>Some venues allow bag in the size of a sheet of A4 paper, the small the better so it is easier of the security can look through it easily and quickly.</p>
+    </div>
+  </div>
+
+  <div class="rightcolumn">
+    <div class="card">
+    <div class="container">
+      <img src="tip.jpg" style="width: 620px; height: auto">
+      <div class="centered">Tips</div>
+    </div>
+      <p>Buy a RFID wallet or purse if you are going to us a credit or debit cards</p>
+      <p>Always bring a bag to keep you items in even if you don't feel like you need it</p>
+      <p>Bags should be the size of a A4 sheet of paper or smaller</p>
+      <p>Add tickets to your Apple Wallet/ Google Wallet beforehand so it is easier to get in</p>
+      <p>Eat before going to the concert</p>
+      <p>Share location with friends and family</p>
+        </div>
+    
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <img src="ticket.jpg" style="width: 300px; height: auto"><br>
+      <img src="rfid.jpg" style="width: 300px; height: auto">
+    </div>
+    <div class="card">
+      <h3>More Information</h3>
+      <p>What you should carry on you</p>
+
+    
+        <p>Portable charger</p>
+        <p>Cash incase of emergency</p>
+        <p>ID</p>
+        <p>Tickets</p>
+         <p>Medication if you need it</p>
+        <p>Debit or credit cards</p>
+        <p>RFID blocking wallet/ purse</p>
+      
+      
+    </div>
+  </div>
+</div>
+    
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+</html
+      
+      
+      
+
+
+
+
