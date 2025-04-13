@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="css.css">
+        <link rel="stylesheet" href="home.css">
+        
+        
+        <title>Home</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+   
+  }
+
+  .header {
+    background-color: #F1F1F1;
+    padding: 20px;
+    margin-bottom: 2rem;
+  }
+
+
+  .column {
+    background-color: #f1f1f1;
+    margin: 0 auto 2rem auto;
+    padding: 20px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+
+  .event {
+    background-color: #ffffff;
+    border-left: 5px solid #27ae60;
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .event-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #2c3e50;
+  }
+
+  .event-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .poll-container {
+    background-color: #f5f8fc;
+    padding: 2rem;
+    margin: 0 auto 2rem auto;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .poll-container label {
+    display: block;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .footer {
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    nav li {
+      display: block;
+      margin: 10px 0;
+    }
+
+    form, .column, .event, .poll-container {
+      width: 90%;
+    }
+  }
+
+  .header {
+  position: relative;
+  text-align: center;
+  color: grey;
+}
+
+.header-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+</style> 
+  
+</head>
+<body>
+ 
+<header>
+     <div class="header">
+  <img src="banner.jpg" style="width: 600px; height: auto">
+  <div class="header-centered">Welcome to Sound</div>
+</div>
+
+
+</header>
+<nav>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="Chat.html">Chat</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="info.html">Information</a></li>
+</nav>
+
+<section>
+
+          
+
+
+<div class="column" style="background-color: #f1f1f1;">
+        <h2>Sound the website to improve concert safety and experience</h2>  
+        <p>Sound is a new way you to enjoy a new and improved experience during concerts but also Safety.</p>
+    
+</div>
+
+<h2>Login</h2>
+    
+
+    <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+</section>
+
+          <h1>Message Board</h1>
+  
+  <form id="eventForm">
+    <input type="text" id="eventTitle" placeholder="Event Title" required />
+    <input type="date" id="eventDate" required />
+    <textarea id="eventDesc" placeholder="Event Description" required></textarea>
+    <button type="submit">Post Event</button>
+  </form>
+
+    <div id="eventList"></div>
+
+  <script>
+    const eventForm = document.getElementById('eventForm');
+    const eventList = document.getElementById('eventList');
+
+    eventForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('eventTitle').value.trim();
+      const date = document.getElementById('eventDate').value;
+      const desc = document.getElementById('eventDesc').value.trim();
+
+      if (title && date && desc) {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'event';
+
+        eventDiv.innerHTML = `
+          <div class="event-title">${title}</div>
+          <div class="event-date">📅 ${date}</div>
+          <div class="event-desc">${desc}</div>
+        `;
+
+        eventList.prepend(eventDiv);
+
+        eventForm.reset();
+      }
+    });
+
+  </script>
+
+     <div class="poll-container" style="background-color:#f5f8fc">
+        <h2>What feature should be added to the website?</h2>
+        <form id="pollForm">
+            <label><input type="radio" name="language" value="Private message to admin"> Private Message to Admin</label><br>
+            <label><input type="radio" name="language" value="Updated old features"> Updated old features</label><br>
+            <label><input type="radio" name="language" value="Bus Info"> Bus Info</label><br>
+            <label><input type="radio" name="language" value="Train Info"> Train Info</label><br>
+            <button type="button" onclick="submitPoll()">Submit</button>
+        </form>
+        <p id="result"></p>
+    </div>
+               
+    <script>
+        function submitPoll() {
+            const selectedOption = document.querySelector('input[name="language"]:checked');
+            if (selectedOption) {
+                document.getElementById("result").innerText = "You voted for: " + selectedOption.va$
+            } else {
+                alert("Please select an option before submitting.");
+            }
+        }
+
+</script>
+
+
+        
+<div class="footer">
+  <p>Footer</p>
+</div>
+   
+</body>
+</html>
+
