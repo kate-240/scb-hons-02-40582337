@@ -1,0 +1,142 @@
+
+
+   body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+     
+    }
+ .header {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .header img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+    }
+
+    .header-centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+
+    nav {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      margin: 20px auto;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      max-width: 900px;
+    }
+
+    nav li {
+      list-style: none;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    nav img {
+      height: 40px;
+    }
+
+    main.section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .column, form, .poll-container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+   h1, h2, h3, h5 {
+    color: darkblue;
+}
+
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .footer {
+      background-color: #2c3e50;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-centered {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      main.section {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+
+      nav img {
+        margin: 10px auto 0;
+      }
+    }
