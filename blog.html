@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css.css">
+    <title>Sound</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('blue.jpg'); /* Your background image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Use Flexbox for layout */
+        .row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .leftcolumn {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .rightcolumn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: rgba(44, 62, 80, 0.8);
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+        }
+
+        img {
+            border-radius: 8px;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: white;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 800px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <img src="banner.jpg" style="width: 600px; height: auto">
+    <div class="header-centered">Sound</div>
+</div>
+
+<nav>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="media.html">Media</a></li>
+    <li><a href="Chat.html">Chat</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="info.html">Information</a></li>
+    <img src="logo.jpg" style="width: 100px; height: auto">
+</nav>
+
+<h1>Concert Help Guide</h1>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>First Concert</h2>
+            <h5>Some things you should know</h5>
+            <img src="overview.jpg" alt="Concert Overview" style="width:100%;">
+            <p>When it comes to concerts, here is what you should do:</p>
+            <ul>
+                <li>Travel with a friend or family member</li>
+                <li>Plan the journey ahead of time</li>
+                <li>Keep important items hidden</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Travel with a friend or family member</h2>
+            <h5>It’s safer and more fun!</h5>
+            <img src="travel.jpg" alt="Travel together" style="width:100%;">
+            <p>It is better to go with someone to a concert—either a family member or a friend—if you have multiple tickets. If you're going alone, message someone you trust with your location and the venue address.</p>
+        </div>
+
+        <div class="card">
+            <h2>Plan the journey ahead of time</h2>
+            <h5>Stay organized</h5>
+            <img src="tip.jpg" style="width:100%; height: 300px;">
+            <p>Knowing departure times and checking for public transport delays will make your trip smoother and stress-free.</p>
+        </div>
+
+        <div class="card">
+            <h2>Keep important items hidden</h2>
+            <h5>Keep valuables out of sight</h5>
+            <img src="rainbow.jpg" style="width:100%; height: 200px;">
+            <p>Hide valuables in small bags or inner pockets. Many venues allow only small bags (A4 size or smaller) to make security checks quicker.</p>
+        </div>
+    </div>
+
+    <div class="rightcolumn">
+        <div class="card">
+            <div class="container">
+                <img src="tip.jpg" style="width: 100%;">
+                <div class="centered">Tips</div>
+            </div>
+            <p> Buy an RFID wallet/purse for card safety</p>
+            <p> Bring a small bag even if you don’t think you’ll need it</p>
+            <p> Add tickets to Apple/Google Wallet</p>
+            <p> Eat beforehand</p>
+            <p> Share your location with family/friends</p>
+        </div>
+
+        <div class="card">
+            <h3>Popular Posts</h3>
+            <p>These are some of the items that should be brought to these events/ concerts</p>
+            <img src="bag.jpg" style="width:100%;">
+            <p>Bags should be the size of A4 paper</p><br>
+            <img src="ticket.jpg" style="width:100%;">
+            <p>Have tickets on your phone or printed out</p><br>
+            <img src="rfid.jpg" style="width:200px; height: 300px;">
+            <p>RFID wallet is handy to have since it projects credit/ debit cards</p>
+        </div>
+
+        <div class="card">
+            <h3>More Information</h3>
+            <p>Things to carry:</p>
+            <ul>
+                <li>Portable charger</li>
+                <li>Cash for emergencies</li>
+                <li>ID</li>
+                <li>Tickets</li>
+                <li>Medication</li>
+                <li>Cards</li>
+                <li>RFID-blocking wallet</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Contribute Your Tips</h2>
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="description">Tip Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="image">Upload Image:</label><br>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+        <input type="submit" value="Submit Tip">
+    </form>
+</div>
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
+
+</body>
+</html>

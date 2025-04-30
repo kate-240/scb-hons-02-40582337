@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sound</title>
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="home.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('blue.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .header img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+    }
+
+    .header-centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      margin: 20px auto;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      max-width: 900px;
+    }
+
+    nav li {
+      list-style: none;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    nav img {
+      height: 40px;
+    }
+
+    main.section {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .column {
+      margin-bottom: 30px;
+    }
+
+    h2, h1 {
+      margin-bottom: 10px;
+      color: #f9f9f9;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    input, textarea, button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+    }
+
+    input, textarea {
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+    }
+
+    button {
+      background-color: #00aced;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0084a8;
+    }
+
+    .event {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .poll-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 10px;
+      color: #ddd;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header">
+      <img src="banner.jpg" alt="Banner">
+      <div class="header-centered">Sound</div>
+    </div>
+  </header>
+
+  <nav>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="media.html">Media</a></li>
+    <li><a href="Chat.html">Chat</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="info.html">Information</a></li>
+    <img src="logo.jpg" alt="Logo">
+  </nav>
+
+  <main class="section">
+
+    <div class="column">
+      <h2>Sound – Improving Concert Safety and Experience</h2>
+      <p>Sound is a new way to enjoy enhanced experiences during concerts while promoting safety and awareness for all attendees.</p>
+    </div>
+
+    <form action="login.php" method="POST">
+      <h2>Login</h2>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="column">
+      <h1>Event Board</h1>
+      <form id="eventForm">
+        <input type="text" id="eventTitle" placeholder="Event Title" required />
+        <input type="date" id="eventDate" required />
+        <textarea id="eventDesc" placeholder="Event Description" required></textarea>
+        <button type="submit">Post Event</button>
+      </form>
+      <div id="eventList"></div>
+    </div>
+
+    <div class="poll-container">
+      <h2>What feature should be added to the website?</h2>
+      <form id="pollForm">
+        <label><input type="radio" name="language" value="Private message to admin"> Private Message to Admin</label><br>
+        <label><input type="radio" name="language" value="Updated old features"> Updated old features</label><br>
+        <label><input type="radio" name="language" value="Bus Info"> Bus Info</label><br>
+        <label><input type="radio" name="language" value="Train Info"> Train Info</label><br>
+        <button type="button" onclick="submitPoll()">Submit</button>
+      </form>
+      <p id="result"></p>
+    </div>
+
+    <div class="column">
+      <h2>Upcoming Events</h2>
+      <ul id="liveEvents"></ul>
+    </div>
+
+    <div class="column">
+      <h2>Gallery Highlights</h2>
+      <img src="concert1.jpeg" alt="Concert crowd" style="width: 100%; border-radius: 10px;">
+    </div>
+
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2025 Sound. All rights reserved.</p>
+  </div>
+
+<script>
+  const eventForm = document.getElementById('eventForm');
+  const eventList = document.getElementById('eventList');
+
+  eventForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById('eventTitle').value.trim();
+    const date = document.getElementById('eventDate').value;
+    const desc = document.getElementById('eventDesc').value.trim();
+
+    if (title && date && desc) {
+      const eventDiv = document.createElement('div');
+      eventDiv.className = 'event';
+
+      eventDiv.innerHTML = `
+        <div class="event-title">${title}</div>
+        <div class="event-date">📅 ${date}</div>
+        <div class="event-desc">${desc}</div>
+      `;
+
+      eventList.prepend(eventDiv);
+      eventForm.reset();
+    }
+  });
+
+  function submitPoll() {
+    const selectedOption = document.querySelector('input[name="language"]:checked');
+    if (selectedOption) {
+      document.getElementById("result").innerText = "You voted for: " + selectedOption.value;
+    } else {
+      alert("Please select an option before submitting.");
+    }
+  }
+
+  const events = [
+    { title: "Summer Beats Festival", date: "2025-05-15T18:00:00" },
+    { title: "Soundwave Tech Expo", date: "2025-06-10T10:00:00" },
+    { title: "Indie Vibes Night", date: "2025-04-28T20:00:00" },
+    { title: "Music Security Summit", date: "2025-07-05T09:30:00" }
+  ];
+
+  const liveEventsContainer = document.getElementById('liveEvents');
+
+  function renderUpcomingEvents() {
+    const now = new Date();
+    const upcoming = events
+      .filter(e => new Date(e.date) > now)
+      .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    if (upcoming.length === 0) {
+      liveEventsContainer.innerHTML = "<li>No upcoming events.</li>";
+      return;
+    }
+
+    liveEventsContainer.innerHTML = upcoming.map(e => {
+      const eventDate = new Date(e.date);
+      return `<li><strong>${eventDate.toLocaleDateString()} ${eventDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}:</strong> ${e.title}</li>`;
+    }).join("");
+  }
+
+  renderUpcomingEvents();
+
+  // LOGIN REDIRECT
+  const loginForm = document.querySelector('form[action="login.php"]');
+
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    window.location.href = 'home.html'; 
+  });
+</script>
+
+
+</body>
+</html>
